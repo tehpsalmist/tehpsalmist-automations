@@ -1,0 +1,14 @@
+{
+  "name": "tehpsalmist-automations",
+  "alias": [
+    "tehpsalmist-automations"
+  ],
+  "version": 2,
+  "env": {
+    "SECRET": "@automation-email-secret",
+    "ID": "@automation-email-client-id",
+    "REFRESH": "@automation-email-refresh-token",
+    "EMAIL": "@automation-email-address",
+    "LATER_ON_REFRESH_TOKEN": "@later-on-refresh-token"
+  }
+}
