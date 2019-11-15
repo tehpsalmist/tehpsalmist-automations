@@ -12,7 +12,7 @@ export const App = props => {
     {error && <p className='text-red-500'>Unable to fetch idea.</p>}
 {data && data.idea ? <p>{data.index}. {data.idea}</p> : <p>Searching for Inspiration...</p>}
     <label>
-      <span className='mr-2'>Idea Number:</span>
+      <span className='mr-2'>Idea Number (out of 50):</span>
       <input
         className='border rounded w-12'
         type='number'
