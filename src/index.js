@@ -6,9 +6,6 @@ import { SWRConfig } from 'swr'
 export const App = props => {
   const [ideaIndex, setIdeaIndex] = useState(1)
   const { data, error } = useGetIdea(typeof ideaIndex === 'number' ? ideaIndex : 1)
-  const { data: wut, error: err } = useWhat()
-
-  console.log(wut)
 
   return <main>
     <h1 className='text-2xl text-center'>Inspire Your Wife</h1>
