@@ -6,16 +6,13 @@ import { SWRConfig } from 'swr'
 export const App = props => {
   const [ideaIndex, setIdeaIndex] = useState(1)
   const { data, error } = useGetIdea(typeof ideaIndex === 'number' ? ideaIndex : 1)
-  const { data: wut, error: err } = useWhat()
-
-  console.log(wut)
 
   return <main>
     <h1 className='text-2xl text-center'><em>Inspire Your Wife</em></h1>
     {error && <p className='text-red-500'>Unable to fetch idea.</p>}
 {data && data.idea ? <p>{data.index}. {data.idea}</p> : <p>Searching for Inspiration...</p>}
     <label>
-      <span className='mr-2'>Idea Number:</span>
+      <span className='mr-2'>Idea Number (out of 50):</span>
       <input
         className='border rounded w-12'
         type='number'
