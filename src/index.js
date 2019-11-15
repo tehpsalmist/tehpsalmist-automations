@@ -11,7 +11,7 @@ export const App = props => {
   console.log(wut)
 
   return <main>
-    <h1 className='text-2xl text-center'>Inspire Your Wife</h1>
+    <h1 className='text-2xl text-center'><em>Inspire Your Wife</em></h1>
     {error && <p className='text-red-500'>Unable to fetch idea.</p>}
 {data && data.idea ? <p>{data.index}. {data.idea}</p> : <p>Searching for Inspiration...</p>}
     <label>
