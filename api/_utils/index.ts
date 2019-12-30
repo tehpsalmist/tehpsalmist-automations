@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import fetch from 'node-fetch'
+import fetch, { Response } from 'node-fetch'
 
 const {
   EMAIL,
@@ -65,7 +65,7 @@ export const sendText = (textOptions: { to: string | string[], subject: string, 
 
 let access_token = 'abc123.jkl456.xyz789'
 
-export const tryFor200 = async request => {
+export const tryFor200 = async (request: (token: string) => Promise<Response>): Promise<string | null> => {
   try {
     const firstResponse = await request(access_token)
 
@@ -82,7 +82,7 @@ export const tryFor200 = async request => {
         body: JSON.stringify({
           refreshToken: LATER_ON_REFRESH_TOKEN
         })
-      }).then(r => r.json())
+      }).then((r: Response) => r.json())
 
       access_token = refreshBody.authData.access_token
 

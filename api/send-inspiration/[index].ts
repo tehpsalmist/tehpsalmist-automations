@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import { ideas } from '../_data/inspiration'
 import { sendEmail, tryFor200 } from '../_utils'
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async (req: NowRequest, res: NowResponse): Promise<NowResponse> => {
   const { index, email } = req.query
   const jobId = req.headers['job-id']
 
@@ -39,5 +39,5 @@ export default async (req: NowRequest, res: NowResponse) => {
     console.log('failed to update')
   }
 
-  res.status(200).json({ jobId })
+  return res.status(200).json({ jobId })
 }
