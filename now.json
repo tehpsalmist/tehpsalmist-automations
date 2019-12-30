@@ -1,8 +1,5 @@
 {
   "name": "tehpsalmist-automations",
-  "alias": [
-    "tehpsalmist-automations"
-  ],
   "version": 2,
   "env": {
     "SECRET": "@automation-email-secret",
