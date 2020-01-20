@@ -24,7 +24,7 @@
       }
     },
     {
-      "src": "/api/email-me-inspiration/(?<index>[^/]+)",
+      "src": "/api/email-me-inspiration",
       "dest": "api/email-me-inspiration",
       "methods": [
         "POST"
