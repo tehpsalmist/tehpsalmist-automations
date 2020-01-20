@@ -7,5 +7,42 @@
     "REFRESH": "@automation-email-refresh-token",
     "EMAIL": "@automation-email-address",
     "LATER_ON_REFRESH_TOKEN": "@later-on-refresh-token"
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/inspire/(?<index>[^/]+)",
+      "dest": "api/inspire/[index].ts?index=$index",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "src": "/api/send-inspiration/(?<index>[^/]+)",
+      "dest": "api/send-inspiration/[index].ts?index=$index",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "src": "/api/email-me-inspiration/(?<index>[^/]+)",
+      "dest": "api/email-me-inspiration",
+      "methods": [
+        "POST"
+      ],
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/([^\\/\\.]*)",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }
