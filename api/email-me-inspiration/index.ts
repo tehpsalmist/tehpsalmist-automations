@@ -4,6 +4,7 @@ import fetch from 'node-fetch'
 
 export default async (req: NowRequest, res: NowResponse): Promise<NowResponse> => {
   const email = req.body.email
+  const tz = req.body.tz || 'US/Eastern'
 
   if (!email) return res.status(400).json({ error: 'email is required in post body' })
 
@@ -13,7 +14,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<NowResponse> =
       actionUrl: `https://tehpsalmist-automations.now.sh/api/send-inspiration/1?email=${email}`,
       method: 'GET',
       time: `${Math.floor(Math.random() * 60)} 14 */2 * *`,
-      timeZone: 'US/Eastern'
+      timeZone: tz
     }),
     headers: {
       'Content-Type': 'application/json',

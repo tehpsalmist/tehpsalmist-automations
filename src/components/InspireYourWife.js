@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useGetIdea, useFreshClosure } from '../hooks'
 
+let tz
+
+try {
+  tz = Intl.DateTimeFormat().resolvedOptions().timeZone
+} catch (error) {}
+
 export const InspireYourWife = props => {
   const [ideaIndex, setIdeaIndex] = useState(1)
   const { data, error } = useGetIdea(ideaIndex)
@@ -74,7 +80,7 @@ export const InspireYourWife = props => {
 
             fetch(`/api/email-me-inspiration`, {
               method: 'POST',
-              body: JSON.stringify({ email }),
+              body: JSON.stringify({ email, tz }),
               headers: {
                 'Content-Type': 'application/json'
               }
